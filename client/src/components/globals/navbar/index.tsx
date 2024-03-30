@@ -37,6 +37,8 @@ const Navbar = () => {
     
          <ConnectWallet
             style={{
+              padding: "20px",
+              fontSize: "16px",
                 backgroundColor: "#CEED85",
                 borderRadius: "10px",
                 height: "35px",

@@ -12,5 +12,5 @@ export const campaignSchema = z.object({
   }),
   target: z.string(),
   image: z.string(),
-  deadline: z.string(),
+  deadline: z.date(),
 });

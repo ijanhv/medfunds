@@ -7,10 +7,11 @@ import type { AppProps } from "next/app";
 
 export default function App({ Component, pageProps }: AppProps) {
   const activeChain = "mumbai";
+  
   return (
     <main className={`$${manrope.variable} ${noto.variable} font-manrope`}>
       <ThirdwebProvider
-        clientId="403343382d341f653800c95309f735cf"
+        clientId="3bd03ebcf6f98a5c5508c659c68885b6"
         activeChain={activeChain}
         supportedWallets={[
           metamaskWallet(),

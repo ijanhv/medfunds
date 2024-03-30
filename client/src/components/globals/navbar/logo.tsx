@@ -1,11 +1,12 @@
-import React from 'react'
+import Link from "next/link";
+import React from "react";
 
 const Logo = () => {
   return (
-    <h3 className='text-2xl font-bold'>
-        MedFunds
-    </h3>
-  )
-}
+    <Link href="/" className="text-2xl font-bold">
+      MedFunds
+    </Link>
+  );
+};
 
-export default Logo
+export default Logo;
