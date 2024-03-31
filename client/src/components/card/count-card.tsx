@@ -19,7 +19,7 @@ const CountCard = ({
   
         <h3 className="text-xl font-semibold truncate">{title}</h3>
         <p className="text-foreground/70">
-          {Number(amount)}
+        {title === "Target" ?  `${Number(amount) * 1000000000000000000}` : amount}
         </p>
       </div>
     );

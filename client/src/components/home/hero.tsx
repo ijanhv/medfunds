@@ -14,6 +14,8 @@ const HeroSection = () => {
         unoptimized
       />
 
+      <div className="absolute w-full h-full bg-gradient-to-t from-black/70 to-transparent"></div>
+
       <div className="absolute w-full h-full flex flex-col lg:flex-row items-center lg:items-end justify-between p-10">
         <div className="flex items-end gap-2">
           <h3 className="text-5xl lg:text-9xl font-semibold text-white">

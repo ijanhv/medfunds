@@ -10,13 +10,10 @@ const Navbar = () => {
       path: "/",
     },
     {
-      title: "About",
-      path: "/about",
+      title: "Create Campaign",
+      path: "/create-campaign",
     },
-    {
-      title: "Services",
-      path: "/services",
-    },
+
     {
       title: "My Campaigns",
       path: "/my-campaigns",
@@ -34,21 +31,18 @@ const Navbar = () => {
           ))}
         </div>
 
-    
-         <ConnectWallet
-            style={{
-              padding: "20px",
-              fontSize: "16px",
-                backgroundColor: "#CEED85",
-                borderRadius: "10px",
-                height: "35px",
-            
-                color: "#15532D",
-            }}
-        theme={"light"}
-   
+        <ConnectWallet
+          style={{
+            padding: "20px",
+            fontSize: "16px",
+            backgroundColor: "#CEED85",
+            borderRadius: "10px",
+            height: "35px",
 
-      />
+            color: "#15532D",
+          }}
+          theme={"light"}
+        />
       </div>
     </div>
   );
