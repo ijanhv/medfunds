@@ -18,11 +18,11 @@ MedFunds 💉💰 is an innovative medical fundraising platform that harnesses t
 
 ## Tech Stack
 
--- **Client:** Nextjs, Typescript, React, Shadcn UI, TailwindCSS 
+- **Client:** Nextjs, Typescript, React, Shadcn UI, TailwindCSS 
 
--- **Smart Contract:** Solidity
+- **Smart Contract:** Solidity
 
--- **Providers:** Thirdweb
+- **Providers:** Thirdweb
 
 
 
@@ -45,7 +45,7 @@ Steps to start this project
   npm run dev
   
   Contract
-  
+
   cd web3
   npx thirdweb deploy
 ```
