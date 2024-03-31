@@ -28,14 +28,15 @@ const CampaignCard = ({
       href={`/campaigns/${id}`}
       className=" rounded-[15px] border cursor-pointer"
     >
-      <Image
-        src={image}
-        alt="fund"
-        width={238}
-        height={538}
-        className="w-full object-cover rounded-[15px]"
-        unoptimized
-      />
+      <div className="group relative w-full h-[200px]  rounded-[15px] overflow-hidden">
+        <Image
+          src={image}
+          alt="fund"
+          fill
+          className="w-full object-cover rounded-[15px] group-hover:scale-105 transition-all duration-300 ease-in-out"
+          unoptimized
+        />
+      </div>
 
       <div className="flex flex-col p-4">
         <div className="block">
@@ -53,7 +54,7 @@ const CampaignCard = ({
               {amountCollected}
             </h4>
             <p className="mt-[3px] font-epilogue font-normal text-[12px] leading-[18px]  sm:max-w-[120px] truncate">
-              Raised of {target}
+              Raised of {Number(target) * 1000000000000000000}
             </p>
           </div>
           <div className="flex flex-col">

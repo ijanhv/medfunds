@@ -10,14 +10,10 @@ export const calculateBarPercentage = ({
   raisedAmount,
 }: {
   goal: number;
-  raisedAmount: number;
+  raisedAmount: number; 
 }) => {
   const percentage = Math.round((raisedAmount * 100) / goal);
 
   return percentage;
 };
-
-  
-  
-
 

@@ -1,24 +1,24 @@
-import { useContract, useContractRead } from "@thirdweb-dev/react";
-import Title from "../common/title";
+import { useAddress, useContract, useContractRead } from "@thirdweb-dev/react";
+import React from "react";
+import CampaignsDisplayLoader from "../loaders/campaigns-display";
 import { ethers } from "ethers";
 import CampaignCard from "../card/campaign-card";
-import { any } from "zod";
-import CampaignsDisplayLoader from "../loaders/campaigns-display";
 
-
-
-const Campaigns = () => {
+const MyCampaigns = () => {
   const { contract } = useContract(
     process.env.NEXT_PUBLIC_CONTRACT_ADDRESS as string
   );
+  const address = useAddress();
 
   const { data, isLoading } = useContractRead(contract, "getCampaigns");
 
-  if (isLoading) {
-    return <CampaignsDisplayLoader />;
-  }
+  if (isLoading) return <CampaignsDisplayLoader />;
 
-  const parsedCampaings = data.map((campaign: any, i: number) => ({
+  const filteredCampaigns = data?.filter(
+    (campaign: any) => campaign.owner === address
+  );
+
+  const parsedCampaings = filteredCampaigns.map((campaign: any, i: number) => ({
     owner: campaign?.owner,
     title: campaign?.title,
     description: campaign?.description,
@@ -30,17 +30,9 @@ const Campaigns = () => {
     image: campaign?.image,
     pId: i,
   }));
-
   return (
-    <div className="container2 w-full">
-      <Title
-        title="Urgent Fundraising "
-        subtitle="Time is of the essence. Join our mission NOW to make a difference."
-      />
-
-
-      
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
+    <div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 h-full">
         {!isLoading &&
           parsedCampaings.length > 0 &&
           parsedCampaings.map((campaign: Campaign, i: number) => (
@@ -51,4 +43,4 @@ const Campaigns = () => {
   );
 };
 
-export default Campaigns;
+export default MyCampaigns;

@@ -150,13 +150,13 @@ const CampaignForm = () => {
                   <div className="flex justify-between text-sm text-muted-foreground">
                     <span>0</span>
 
-                    <span>1000000</span>
+                    <span>10</span>
                   </div>
                   <FormControl>
                     <>
                       <Slider
                         value={[parseInt(field.value)]}
-                        max={1000000}
+                        max={10}
                         step={1}
                         className="w-full"
                         onValueChange={(value) => {
@@ -180,7 +180,7 @@ const CampaignForm = () => {
               name="deadline"
               render={({ field }) => (
                 <FormItem className="flex flex-col">
-                  <FormLabel>Date of birth</FormLabel>
+                  <FormLabel>Campaign Deadline</FormLabel>
                   <Popover>
                     <PopoverTrigger asChild>
                       <FormControl>

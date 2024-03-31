@@ -18,8 +18,8 @@ const Navbar = () => {
       path: "/services",
     },
     {
-      title: "Contact",
-      path: "/contact",
+      title: "My Campaigns",
+      path: "/my-campaigns",
     },
   ];
   return (
