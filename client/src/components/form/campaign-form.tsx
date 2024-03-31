@@ -31,7 +31,7 @@ import { toast } from "sonner";
 const CampaignForm = () => {
   const address = useAddress();
   const { contract } = useContract(
-    "0x89c16f4524D62f33B6a4CB03B047F4052a868a2B"
+    process.env.NEXT_PUBLIC_CONTRACT_ADDRESS as string
   );
   const { mutateAsync: createCampaign, isSuccess } = useContractWrite(
     contract,
@@ -40,10 +40,7 @@ const CampaignForm = () => {
 
   const form = useForm<z.infer<typeof campaignSchema>>({
     resolver: zodResolver(campaignSchema),
-    defaultValues: {},
   });
-
-  console.log(form.watch());
 
   function onSubmit(values: z.infer<typeof campaignSchema>) {
     try {
@@ -54,13 +51,13 @@ const CampaignForm = () => {
       const deadline = new Date(deadlineString).getTime();
 
       createCampaign({
-        args: [owner, title, description, target, deadline, image],
+        args: [owner, title, name, description, target, deadline, image],
       }).then(() => {
         toast.success("Campaign created successfully", {
           position: "top-center",
           style: {
             backgroundColor: "#CEED86",
-            color: "white",
+            color: "black",
           },
         });
       });
@@ -208,9 +205,7 @@ const CampaignForm = () => {
                         mode="single"
                         selected={field.value}
                         onSelect={field.onChange}
-                        disabled={(date: Date) =>
-                          date > new Date() || date < new Date("1900-01-01")
-                        }
+                        disabled={(date: Date) => date < new Date()}
                         initialFocus
                       />
                     </PopoverContent>

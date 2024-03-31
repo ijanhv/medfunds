@@ -5,6 +5,7 @@ contract MedicalFunding {
     struct MedicalCampaign {
         address owner;
         string title;
+        string name;
         string description;
         uint256 target;
         uint256 deadline;
@@ -21,6 +22,7 @@ contract MedicalFunding {
     function createCampaign(
         address _owner,
         string memory _title,
+        string memory _name,
         string memory _description,
         uint256 _target,
         uint256 _deadline,
@@ -37,6 +39,7 @@ contract MedicalFunding {
         campaign.title = _title;
         campaign.description = _description;
         campaign.target = _target;
+        campaign.name = _name;
         campaign.deadline = _deadline;
         campaign.amountCollected = 0;
         campaign.image = _image;
@@ -44,6 +47,36 @@ contract MedicalFunding {
         numberOfCampaigns++;
 
         return numberOfCampaigns - 1;
+    }
+
+    function getCampaign(
+        uint256 _id
+    )
+        public
+        view
+        returns (
+            address,
+            string memory,
+            string memory,
+            string memory,
+            uint256,
+            uint256,
+            uint256,
+            string memory
+        )
+    {
+        MedicalCampaign storage campaign = campaigns[_id];
+
+        return (
+            campaign.owner,
+            campaign.title,
+            campaign.name,
+            campaign.description,
+            campaign.target,
+            campaign.deadline,
+            campaign.amountCollected,
+            campaign.image
+        );
     }
 
     function donateToCampaign(uint256 _id) public payable {

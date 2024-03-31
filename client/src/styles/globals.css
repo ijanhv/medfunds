@@ -12,8 +12,8 @@ body,
 .button {
   @apply bg-refreshed border border-black/35  rounded-xl text-green-900 font-medium p-2 
 }
-.container {
-  @apply flex flex-col gap-10 h-full my-10 lg:my-28 justify-center items-start w-full
+.container2 {
+  @apply flex flex-col gap-10 h-full my-10 lg:my-28 justify-center items-start w-full 
 }
 
 @layer base {
